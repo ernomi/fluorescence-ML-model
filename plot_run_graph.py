@@ -57,4 +57,4 @@ def plot_training_history_torch(train_losses, train_accuracies, save_path="train
     plt.legend()
 
     plt.savefig(save_path)
-    plt.show()
+    #plt.show()

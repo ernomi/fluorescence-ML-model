@@ -20,7 +20,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load Experimental Data (Simulated Dataset Example)
-data = pd.read_csv('s_data.csv')  # CSV with sample concentration, spore count
+data = pd.read_csv('s_data.csv')
 
 # Extract Features & Labels for Random Forest
 X = data[['initial_amount', 'sample_concentration']].values
@@ -39,8 +39,7 @@ rmse = np.sqrt(mean_squared_error(y_test, predictions))
 print(f'Random Forest RMSE: {rmse:.2f}')
 
 
-# ==============================
-# 🔄 PyTorch Dataset & DataLoader
+# PyTorch Dataset & DataLoader
 # ==============================
 IMG_SIZE = 128
 
@@ -89,8 +88,7 @@ train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 
-# ==============================
-# 🔄 Define CNN Model in PyTorch
+# Define CNN Model in PyTorch
 # ==============================
 class CNN(nn.Module):
     def __init__(self):
@@ -119,15 +117,14 @@ optimizer = optim.Adam(cnn_model.parameters(), lr=0.0003)
 criterion = nn.BCELoss()
 
 
-# ==============================
-# 🔄 Train CNN Model
+# Train CNN Model
 # ==============================
 
 # Initialize lists to store loss and accuracy
 train_losses = []
 train_accuracies = []
 
-EPOCHS = 100
+EPOCHS = 10
 
 for epoch in range(EPOCHS):
     cnn_model.train()
@@ -158,8 +155,7 @@ for epoch in range(EPOCHS):
     print(f"Epoch [{epoch+1}/{EPOCHS}], Loss: {train_loss:.4f}, Train Acc: {train_accuracy:.2f}%")
 
 
-# ==============================
-# 🔄 Evaluate CNN Performance
+# Evaluate CNN Performance
 # ==============================
 cnn_model.eval()
 all_preds = []
