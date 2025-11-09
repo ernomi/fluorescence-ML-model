@@ -4,6 +4,8 @@ matplotlib
 seaborn
 opencv-python
 scikit-learn
+PyQt6
+tqdm
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision

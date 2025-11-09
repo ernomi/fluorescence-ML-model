@@ -1,4 +1,5 @@
 __pycache__/
 s_data.csv
 s_images/
+models/
 spore_run_results.png
